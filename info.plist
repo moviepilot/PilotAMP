@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>PilotAmp</string>
+	<key>ordering</key>
+	<array>
+		<string>8100A948-9F82-406A-9E6C-CD8CCE0C938E</string>
+		<string>F74CEBF7-5439-49D6-BC2B-D7BCE7A76FF5</string>
+	</array>
+	<key>uuid</key>
+	<string>E318E8F5-BB50-4053-8D2F-CFBC7006C467</string>
+</dict>
+</plist>
