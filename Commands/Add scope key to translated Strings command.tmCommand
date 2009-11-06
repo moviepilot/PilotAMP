@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env sh
+cat &lt;&lt;'RUBYEOF' &gt; /tmp/rany-amp-$$.rb
+
+require "#{ENV['TM_SUPPORT_PATH']}/lib/ui.rb"
+
+input = $stdin.read
+if input.empty?
+  puts "Please select something"
+  exit_show_tool_tip
+end
+
+fileparts = ENV['TM_FILEPATH'].split("/")[-3,2]
+
+%w{ pilot moviepilot mp app models views controllers helpers presenters }.each { |dir| fileparts.delete(dir) }
+if fileparts.size &lt; 2
+  fileparts = fileparts +  ENV['TM_FILEPATH'].split("/")[-1].split(".")[0].split("_")
+  fileparts.pop if fileparts.size &gt; 1
+end
+
+default = fileparts.join("/")
+if key_name = TextMate::UI.request_string(:title =&gt; "Translation Key", :prompt =&gt; "Key prefix pls", :default =&gt; default)
+  find = Regexp.new "\\_\\([\"']([^\\[].*?)[\"']\\)"
+  replace = '_("[' + key_name + '] \1")'
+  input = input.gsub(find, replace)
+end
+
+$stdout &lt;&lt; input
+
+RUBYEOF
+
+${TM_RUBY:-ruby} /tmp/rany-amp-$$.rb; exit_status=$?; rm /tmp/rany-amp-$$.rb; exit $exit_status</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>keyEquivalent</key>
+	<string>@S</string>
+	<key>name</key>
+	<string>Add scope key to translated Strings command</string>
+	<key>output</key>
+	<string>replaceSelectedText</string>
+	<key>uuid</key>
+	<string>F74CEBF7-5439-49D6-BC2B-D7BCE7A76FF5</string>
+</dict>
+</plist>
