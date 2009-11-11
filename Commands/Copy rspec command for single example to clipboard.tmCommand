@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env sh
+
+echo spec $TM_FILEPATH":"$TM_LINE_NUMBER | pbcopy
+</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>keyEquivalent</key>
+	<string>~@R</string>
+	<key>name</key>
+	<string>Copy rspec command for single example to clipboard</string>
+	<key>output</key>
+	<string>discard</string>
+	<key>uuid</key>
+	<string>0C989C79-0275-4546-8C5C-849B01D35A15</string>
+</dict>
+</plist>
