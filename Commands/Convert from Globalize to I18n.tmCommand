@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby -W0
+$:.unshift ENV['TM_BUNDLE_SUPPORT'] + "/lib"
+
+require ENV['TM_BUNDLE_SUPPORT'] + '/bin/translation.rb'</string>
+	<key>fallbackInput</key>
+	<string>scope</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>keyEquivalent</key>
+	<string>^I</string>
+	<key>name</key>
+	<string>Convert from Globalize to I18n</string>
+	<key>output</key>
+	<string>replaceSelectedText</string>
+	<key>uuid</key>
+	<string>89218B98-C08D-4F5F-8FF5-40FCB56C80FD</string>
+</dict>
+</plist>
