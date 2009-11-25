@@ -6,18 +6,16 @@
 	<string>nop</string>
 	<key>command</key>
 	<string>#!/usr/bin/env ruby -W0 -KU
-require ENV['TM_BUNDLE_SUPPORT'] + '/bin/translation.rb'</string>
-	<key>fallbackInput</key>
-	<string>scope</string>
+require ENV['TM_BUNDLE_SUPPORT'] + '/bin/open_translations.rb'</string>
 	<key>input</key>
 	<string>selection</string>
 	<key>keyEquivalent</key>
-	<string>^I</string>
+	<string>^J</string>
 	<key>name</key>
-	<string>Convert from Globalize to I18n</string>
+	<string>Open Translation File</string>
 	<key>output</key>
-	<string>replaceSelectedText</string>
+	<string>discard</string>
 	<key>uuid</key>
-	<string>89218B98-C08D-4F5F-8FF5-40FCB56C80FD</string>
+	<string>4296A748-4C2D-4511-8FF7-4AA55D24C415</string>
 </dict>
 </plist>

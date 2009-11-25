@@ -1,8 +1,9 @@
-require 'fileutils'
 require 'erb'
+require 'rubygems'
 require 'active_record'
-require 'pathname' 
-require 'yaml'
+require 'jcode'
+
+$KCODE="UTF8"
 
 #
 #  Change this once 2.3.4 is rolled out and Globalize removed. Change names and add
@@ -21,20 +22,21 @@ class Translation < ActiveRecord::Base
     results = {}
 
     [:de, :en, :fr, :es, :pl].map do |language|
-      
       ActiveRecord::Base.establish_connection \
         :adapter  => "mysql",
-        :host     => Project.database_settings["host"],
-        :username => Project.database_settings["username"],
-        :password => Project.database_settings["password"],
-        :database => [language, Project.database_settings["database"]].join("_")
+        :port     => Project.db["port"],
+        :encoding => Project.db["encoding"],
+        :host     => Project.db["host"],
+        :username => Project.db["username"],
+        :password => Project.db["password"],
+        :database => [language, Project.db["database"]].join("_")
 
       Translation.all(:conditions => ["tr_key = ? AND text IS NOT NULL", globalize_key] , :include => :language).map do |tr|
         results[tr.language.iso_639_1] = tr.text
       end
     end
 
-    results["globalize"] = globalize_key
+    results["example"] = globalize_key
     results
   end
 end
