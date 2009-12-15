@@ -5,16 +5,16 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>echo $TM_FILEPATH | pbcopy</string>
+	<string>ruby -e "print ENV['TM_FILEPATH'].gsub(ENV['TM_PROJECT_DIRECTORY'] + '/', '')" | pbcopy</string>
 	<key>input</key>
 	<string>selection</string>
 	<key>keyEquivalent</key>
-	<string>^@P</string>
+	<string>@P</string>
 	<key>name</key>
-	<string>Copy filename to clipboard with full path</string>
+	<string>Copy filename to clipboard</string>
 	<key>output</key>
 	<string>discard</string>
 	<key>uuid</key>
-	<string>8100A948-9F82-406A-9E6C-CD8CCE0C938E</string>
+	<string>96363433-BFC4-4F0A-B871-AA19989401C0</string>
 </dict>
 </plist>
